@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 export const sign_out = createAsyncThunk("/sign/out", async () => {
-  return fetch("http://localhost:8080/api/v1/sign/out", {
+  return fetch(process.env.React_App_Api + "/sign/out", {
     credentials: "include",
   })
     .then((res) => res.json)

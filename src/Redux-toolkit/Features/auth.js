@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 export const auth = createAsyncThunk("/is/auth", async () => {
   return (
-    fetch("http://localhost:8080/api/v1/is/auth", {
+    fetch(process.env.React_App_Api + "/is/auth", {
       credentials: "include",
     })
       .then((res) => res.json())

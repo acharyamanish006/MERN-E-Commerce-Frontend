@@ -3,7 +3,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 export const sign_in = createAsyncThunk(
   "/sign/in",
   async ({ email, password }) => {
-    return fetch("http://localhost:8080/api/v1/sign/in", {
+    return fetch(process.env.React_App_Api + "/sign/in", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       credentials: "include",

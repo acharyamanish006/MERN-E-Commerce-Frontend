@@ -4,7 +4,7 @@ export const delete_wishlist = createAsyncThunk(
   "/delete/wishlist",
   async (id) => {
     return fetch(
-      `http://localhost:8080/api/v1/get/product/delete/wishlist/${id}`,
+      process.env.React_App_Api + `/get/product/delete/wishlist/${id}`,
       {
         credentials: "include",
       }

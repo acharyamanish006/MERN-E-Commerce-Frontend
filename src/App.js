@@ -41,8 +41,7 @@ function App() {
     setLoading(true);
     try {
       setAuth(auth);
-
-      fetch("http://localhost:8080/api/v1/is/auth", {
+      fetch(process.env.React_App_Api + `/is/auth`, {
         credentials: "include",
       })
         .then((res) => res.json())

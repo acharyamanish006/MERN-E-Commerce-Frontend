@@ -3,7 +3,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 export const post_product = createAsyncThunk(
   "/post/product",
   async ({ product, price, data, description, brand, condition, disPrice }) => {
-    return fetch("http://localhost:8080/api/v1/add/product ", {
+    return fetch(process.env.React_App_Api + "/add/product ", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       credentials: "include",

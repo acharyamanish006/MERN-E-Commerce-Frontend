@@ -4,7 +4,7 @@ import WishlistProduct from "../subComponent/wishlistProduct";
 export const WishList = () => {
   const [wishlist, setWishlist] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:8080/api/v1/get/product/wishlist", {
+    fetch(process.env.React_App_Api + "/get/product/wishlist", {
       credentials: "include",
     })
       .then((res) => res.json())

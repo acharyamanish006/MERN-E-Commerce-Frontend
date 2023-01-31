@@ -11,7 +11,8 @@ export default function SearchedProduct() {
   const { id } = useParams();
 
   useEffect(() => {
-    fetch(`http://localhost:8080/api/v1/get/product/search/${id}`, {
+    // fetch(`http://localhost:8080/api/v1/get/product/search/${id}`, {
+    fetch(process.env.React_App_Api + `/get/product/search/${id}`, {
       credentials: "include",
     })
       .then((res) => res.json())

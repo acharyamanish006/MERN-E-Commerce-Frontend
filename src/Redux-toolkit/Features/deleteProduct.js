@@ -3,7 +3,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 export const delete_product = createAsyncThunk(
   "/delete/wishlist",
   async (id) => {
-    return fetch(`http://localhost:8080/api/v1/product/${id}`, {
+    return fetch(process.env.React_App_Api + `/product/${id}`, {
       method: "DELETE",
       credentials: "include",
     })

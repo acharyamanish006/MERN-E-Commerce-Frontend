@@ -72,7 +72,8 @@ export default function SignUp() {
     // }
 
     //img
-    fetch("https://api.cloudinary.com/v1_1/dru5tgtf6/image/upload", {
+    // fetch("https://api.cloudinary.com/v1_1/dru5tgtf6/image/upload", {
+    fetch(process.env.React_App_Cloudinary_Api, {
       method: "post",
       body: formData,
     })

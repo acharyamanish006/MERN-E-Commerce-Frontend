@@ -12,7 +12,8 @@ export const ProductInfo = ({ data, id }) => {
 
   let rating = data.Rating;
   function add_toCart() {
-    fetch(`http://localhost:8080/api/v1/get/product/cart/${id}`, {
+    // fetch(`http://localhost:8080/api/v1/get/product/cart/${id}`, {
+    fetch(process.env.React_App_Api + `/get/product/cart/${id}`, {
       credentials: "include",
     })
       .then((res) => res.json())

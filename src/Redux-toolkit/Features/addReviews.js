@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 export const add_reviews = createAsyncThunk(
   "/add/reviews",
   async ({ id, user_id, value, review }) => {
-    return fetch(`http://localhost:8080/api/v1/add/review/${id}`, {
+    return fetch(process.env.React_App_Api + `/add/review/${id}`, {
       method: "post",
       headers: { "Content-Type": "application/json" },
       credentials: "include",

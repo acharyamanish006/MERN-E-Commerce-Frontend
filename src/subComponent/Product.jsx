@@ -17,7 +17,8 @@ export default function Product({ data }) {
   // let  = data.;
 
   function add_toCart() {
-    fetch(`http://localhost:8080/api/v1/get/product/cart/${id}`, {
+    // fetch(`http://localhost:8080/api/v1/get/product/cart/${id}`, {
+    fetch(process.env.React_App_Api + `/get/product/cart/${id}`, {
       credentials: "include",
     })
       .then((res) => res.json())
@@ -28,7 +29,8 @@ export default function Product({ data }) {
       .catch((err) => console.log(err));
   }
   function add_toWishlist() {
-    fetch(`http://localhost:8080/api/v1/get/product/wishlist/${id}`, {
+    // fetch(`http://localhost:8080/api/v1/get/product/wishlist/${id}`, {
+    fetch(process.env.React_App_Api + `/get/product/wishlist/${id}`, {
       credentials: "include",
     })
       .then((res) => res.json())

@@ -3,7 +3,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 export const sign_up = createAsyncThunk(
   "/sign/up",
   async ({ name, email, password, A_img }) => {
-    return fetch("http://localhost:8080/api/v1/sign/up", {
+    return fetch(process.env.React_App_Api + "/sign/up", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
