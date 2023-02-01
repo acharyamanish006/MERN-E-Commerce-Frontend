@@ -14,7 +14,7 @@ export const sign_in = createAsyncThunk(
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         return data;
 
         // alert(data.message);
@@ -35,21 +35,21 @@ const signIn = createSlice({
   initialState: {
     user_id: "",
     auth: false,
-    loading: false,
+    Loading: false,
   },
   extraReducers: {
     [sign_in.pending]: (state, action) => {
       state.auth = false;
-      state.loading = true;
+      state.Loading = true;
     },
     [sign_in.fulfilled]: (state, action) => {
       state.user_id = action.payload.user._id;
       state.auth = action.payload.success;
-      state.loading = false;
+      state.Loading = false;
     },
     [sign_in.rejected]: (state, action) => {
       state.auth = false;
-      state.loading = false;
+      state.Loading = false;
     },
   },
 });

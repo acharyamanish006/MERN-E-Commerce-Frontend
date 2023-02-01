@@ -46,7 +46,7 @@ const theme = createTheme();
 
 export default function SignIn() {
   const [loading, setLoading] = useState(false);
-  const { auth } = useSelector((state) => state.signIn);
+  const { auth, Loading } = useSelector((state) => state.signIn);
 
   const dispatch = useDispatch();
   const handleSubmit = (event) => {
@@ -59,14 +59,14 @@ export default function SignIn() {
       return alert("fields can't be empty");
     }
     dispatch(sign_in({ email, password }));
-    setLoading(false);
   };
   useEffect(() => {
     dispatch({
       type: "is_Auth",
       payload: auth,
     });
-  }, [dispatch, auth]);
+    setLoading(Loading);
+  }, [dispatch, auth, Loading]);
 
   return (
     <div className="bg-gray-50 m-4 rounded-md  p-5 px-10">
