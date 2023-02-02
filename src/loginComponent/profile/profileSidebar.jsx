@@ -15,7 +15,7 @@ import "./css/profileSidebar.css";
 const ProfileSidebar = () => {
   const dispatch = useDispatch();
   function signOut() {
-    fetch("http://localhost:8080/api/v1/sign/out", {
+    fetch(process.env.React_App_Api + "/sign/out", {
       credentials: "include",
     })
       .then((res) => res.json)
