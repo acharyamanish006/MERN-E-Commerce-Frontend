@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
+import { ProgressBar } from "../subComponent/progress";
 
 export default function Store() {
   // const [product, setProduct] = useState([]);
@@ -32,7 +33,7 @@ export default function Store() {
 
   const [currentPage, setCurrentPage] = useState(1);
   if (!products) {
-    return "Loading...";
+    return <ProgressBar />;
   }
 
   //pagenation
@@ -44,10 +45,7 @@ export default function Store() {
   const totalPage = Math.round(products.length / postPerPage) + 1;
 
   if (loading) {
-    return "Loading...";
-  }
-  if (!products) {
-    return "Loading...";
+    return <ProgressBar />;
   }
   return (
     <div className="productContainer">

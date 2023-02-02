@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetch_product } from "../Redux-toolkit/Features/FetchSingleData";
 import { useParams } from "react-router-dom";
+import { ProgressBar } from "./progress";
 export const ProductDetail = () => {
   const { id } = useParams();
 
@@ -15,7 +16,10 @@ export const ProductDetail = () => {
     dispatch(fetch_product(id));
   }, [dispatch, id]);
   if (loading) {
-    return "loading..";
+    return <ProgressBar />;
+  }
+  if (!product) {
+    return <ProgressBar />;
   }
   return (
     <div className="productContainer">

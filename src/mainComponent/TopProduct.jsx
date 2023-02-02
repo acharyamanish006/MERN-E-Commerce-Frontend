@@ -2,15 +2,16 @@ import React from "react";
 import "./css/topProduct.css";
 import Product from "../subComponent/Product";
 import { useSelector } from "react-redux";
+import { ProgressBar } from "../subComponent/progress";
 
 export default function TopProduct({ name, priceRange }) {
   const { products, loading } = useSelector((state) => state.allProduct);
 
   if (loading) {
-    return "Loading...";
+    return <ProgressBar />;
   }
   if (!products) {
-    return "Loading...";
+    return <ProgressBar />;
   }
   const sortedProducts = products
     .slice()
